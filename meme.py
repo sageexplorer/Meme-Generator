@@ -41,9 +41,9 @@ def generate_meme(path=None, body=None, author=None):
 
 
 if __name__ == "__main__":
-    # @TODO Use ArgumentParser to parse the following CLI arguments
-    # path - path to an image file
-    # body - quote body to add to the image
-    # author - quote author to add to the image
     parser = argparse.ArgumentParser(description='Argument parser for the image caption meme generator')
+    path = parser.add_argument('path', type=str, help="Enter the path of the files",  default=None)
+    body = parser.add_argument('body', type=str, help="Enter the quote",  default="Love, laugh, Bark")
+    author = parser.add_argument('author', type=str, help="Enter the name of the author",  default="Barky Robinson")
+    args = parser.parse_args()
     print(generate_meme(args.path, args.body, args.author))
